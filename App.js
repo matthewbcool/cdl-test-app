@@ -7,13 +7,7 @@
  */
 
 import React, { Component } from "react"
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableHighlight,
-  TouchableOpacity
-} from "react-native"
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native"
 import {
   RkButton,
   RkTheme,
@@ -21,6 +15,7 @@ import {
   RkChoice
 } from "react-native-ui-kitten"
 import DateTimePicker from "react-native-modal-datetime-picker"
+import { StackActions, NavigationActions } from "react-navigation"
 
 RkTheme.setType("RkButton", "calculate", {
   fontSize: 24,
@@ -137,6 +132,19 @@ export default class App extends Component {
           </View>
         </View>
         <RkButton rkType="calculate">Calculate</RkButton>
+        <RkButton
+          onPress={() => {
+            this.props.navigation.dispatch(
+              StackActions.reset({
+                index: 0,
+                actions: [
+                  NavigationActions.navigate({ routeName: "OtherScreen" })
+                ]
+              })
+            )
+          }}>
+          Click to test Navigation
+        </RkButton>
       </View>
     )
   }
@@ -157,10 +165,9 @@ const styles = StyleSheet.create({
     marginTop: 20
   },
   breakIntervalContainer: {
-    borderColor: "red",
+    borderColor: "blue",
     borderWidth: 2,
     flexDirection: "column",
-    justifyContent: "space-between",
     marginTop: 20
   },
   startLandContainer: {
