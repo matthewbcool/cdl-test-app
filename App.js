@@ -56,7 +56,9 @@ export default class App extends Component {
             onConfirm={this._handleDatePicked}
             onCancel={this._hideDateTimePicker}
             mode="time"
+            datePickerModeAndroid="spinner"
             is24Hour={true}
+            titleIOS="Pick a Time"
           />
 
           <TouchableOpacity onPress={this._showDateTimePicker}>
@@ -71,6 +73,8 @@ export default class App extends Component {
             onCancel={this._hideDateTimePicker}
             mode="time"
             is24Hour={true}
+            datePickerModeAndroid="spinner"
+            titleIOS="Pick a Time"
           />
 
           <View style={styles.lastServiceSelectContainer}>
@@ -143,7 +147,7 @@ export default class App extends Component {
               })
             )
           }}>
-          Click to test Navigation
+          Test Navigation
         </RkButton>
       </View>
     )
